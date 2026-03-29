@@ -183,7 +183,7 @@
       <article class="card">
         <h2>1. Signal Composition</h2>
         <p>Compose two signals into a contextual condition.</p>
-        <textarea class="kotlin-playground" data-target-platform="junit" data-version="1.9.20">data class Signal(var value: Int, val id: String)
+        <textarea class="kotlin-playground" data-target-platform="js" data-version="1.9.20">data class Signal(var value: Int, val id: String)
 
 fun comfort(t: Signal, h: Signal): Boolean = t.value > 20 && h.value < 70
 
@@ -196,13 +196,13 @@ fun main() {
     println("comfort = ${comfort(temp, humidity)}")
 }
 
-main()</textarea>
+</textarea>
       </article>
 
       <article class="card">
         <h2>2. Enter / Exit Hooks</h2>
         <p>Observe transitions when a layer condition toggles.</p>
-        <textarea class="kotlin-playground" data-target-platform="junit" data-version="1.9.20">class Layer(
+        <textarea class="kotlin-playground" data-target-platform="js" data-version="1.9.20">class Layer(
     val condition: () -> Boolean,
     val enter: () -> Unit,
     val exit: () -> Unit
@@ -235,13 +235,13 @@ fun main() {
     println(calls)
 }
 
-main()</textarea>
+</textarea>
       </article>
 
       <article class="card">
         <h2>3. Partial Method + Proceed</h2>
         <p>Customize behavior while preserving access to base behavior.</p>
-        <textarea class="kotlin-playground" data-target-platform="junit" data-version="1.9.20">class Player {
+        <textarea class="kotlin-playground" data-target-platform="js" data-version="1.9.20">class Player {
     fun baseSpeed(): Int = 10
 }
 
@@ -256,13 +256,13 @@ fun main() {
     println("layer = ${partialSpeed(p) { p.baseSpeed() }}")
 }
 
-main()</textarea>
+</textarea>
       </article>
 
       <article class="card">
         <h2>4. Recursive Context State</h2>
         <p>Model a sticky condition that remains true after first activation.</p>
-        <textarea class="kotlin-playground" data-target-platform="junit" data-version="1.9.20">fun main() {
+        <textarea class="kotlin-playground" data-target-platform="js" data-version="1.9.20">fun main() {
     var motion = 0
     var sticky = false
 
@@ -279,7 +279,7 @@ main()</textarea>
     println("occupied=${occupied()}, sticky=${stickyCondition()}")
 }
 
-main()</textarea>
+</textarea>
       </article>
     </section>
 
