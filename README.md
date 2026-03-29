@@ -30,6 +30,11 @@ Current suite:
 - **82 tests**
 - Includes Kotlin ports of EMA-js tests + additional coverage tests
 
+## NPM Package
+
+- Package: [`ema-kotlin`](https://www.npmjs.com/package/ema-kotlin)
+- Repository: <https://github.com/pleger/EMA-Kotlin>
+
 ## Quick Start
 
 ```kotlin
