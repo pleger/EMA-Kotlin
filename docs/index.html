@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMA-Kotlin Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4f1e8;
+      --ink: #15232d;
+      --panel: #fffdfa;
+      --accent: #e85d04;
+      --accent-2: #0a9396;
+      --line: #d8d2c4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, #f7dfc5 0, transparent 28%),
+        radial-gradient(circle at 85% 10%, #bee4e0 0, transparent 23%),
+        var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.2rem 1.1rem 3rem;
+    }
+
+    .hero {
+      border: 2px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(135deg, #fff9f1 0%, #f7faf7 100%);
+      padding: 1.25rem 1.25rem 1.4rem;
+      box-shadow: 0 14px 40px rgba(21, 35, 45, 0.08);
+      animation: rise .5s ease-out;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.7rem, 5vw, 2.8rem);
+      letter-spacing: 0.01em;
+    }
+
+    .sub {
+      margin: .7rem 0 0;
+      max-width: 74ch;
+      line-height: 1.55;
+    }
+
+    .badge-row {
+      margin-top: .95rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+    }
+
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .33rem .7rem;
+      font-size: .85rem;
+      background: white;
+    }
+
+    .grid {
+      margin-top: 1.2rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .card {
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      background: var(--panel);
+      padding: .95rem;
+      animation: rise .45s ease-out;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.04rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: .45rem 0 .8rem;
+      font-size: .93rem;
+      line-height: 1.45;
+    }
+
+    .kotlin-playground {
+      width: 100%;
+      min-height: 245px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 13px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fefcf8;
+      padding: .6rem;
+    }
+
+    .links {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    .links a {
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      padding: .5rem .8rem;
+      border-radius: 10px;
+      background: #fff;
+      transition: transform .16s ease, background .16s ease;
+    }
+
+    .links a.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .links a.alt {
+      background: var(--accent-2);
+      color: #fff;
+      border-color: var(--accent-2);
+    }
+
+    .links a:hover {
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 1.3rem;
+      font-size: .86rem;
+      opacity: .85;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>EMA-Kotlin Playground</h1>
+      <p class="sub">
+        Explore Expressive and Modular Activation in Kotlin. This page includes interactive snippets inspired by EMA-js examples,
+        now adapted for Kotlin. The browser snippets are intentionally lightweight; the production runtime is in this repository.
+      </p>
+      <div class="badge-row">
+        <span class="badge">Context-Oriented Programming</span>
+        <span class="badge">Signal composition</span>
+        <span class="badge">Layer activation</span>
+        <span class="badge">Partial methods</span>
+      </div>
+      <div class="links">
+        <a class="primary" href="https://github.com/pleger/EMA-Kotlin" target="_blank" rel="noopener">Repository</a>
+        <a class="alt" href="https://github.com/pragmaticslaboratory/EMAjs" target="_blank" rel="noopener">EMA-js source</a>
+        <a href="https://pleger.github.io/aspectscript" target="_blank" rel="noopener">Inspiration</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>1. Signal Composition</h2>
+        <p>Compose two signals into a contextual condition.</p>
+        <textarea class="kotlin-playground" data-target-platform="junit" data-version="1.9.20">data class Signal(var value: Int, val id: String)
+
+fun comfort(t: Signal, h: Signal): Boolean = t.value > 20 && h.value < 70
+
+fun main() {
+    val temp = Signal(17, "t")
+    val humidity = Signal(55, "h")
+
+    println("comfort = ${comfort(temp, humidity)}")
+    temp.value = 24
+    println("comfort = ${comfort(temp, humidity)}")
+}
+
+main()</textarea>
+      </article>
+
+      <article class="card">
+        <h2>2. Enter / Exit Hooks</h2>
+        <p>Observe transitions when a layer condition toggles.</p>
+        <textarea class="kotlin-playground" data-target-platform="junit" data-version="1.9.20">class Layer(
+    val condition: () -> Boolean,
+    val enter: () -> Unit,
+    val exit: () -> Unit
+) {
+    private var active = false
+
+    fun tick() {
+        val now = condition()
+        if (now != active) {
+            active = now
+            if (active) enter() else exit()
+        }
+    }
+}
+
+fun main() {
+    var x = 2
+    val calls = mutableListOf<String>()
+
+    val orientationLayer = Layer(
+        condition = { x > 10 },
+        enter = { calls += "enter" },
+        exit = { calls += "exit" }
+    )
+
+    orientationLayer.tick()
+    x = 20; orientationLayer.tick()
+    x = 1; orientationLayer.tick()
+
+    println(calls)
+}
+
+main()</textarea>
+      </article>
+
+      <article class="card">
+        <h2>3. Partial Method + Proceed</h2>
+        <p>Customize behavior while preserving access to base behavior.</p>
+        <textarea class="kotlin-playground" data-target-platform="junit" data-version="1.9.20">class Player {
+    fun baseSpeed(): Int = 10
+}
+
+fun partialSpeed(player: Player, proceed: () -> Int): Int {
+    val contextualBonus = 7
+    return proceed() + contextualBonus
+}
+
+fun main() {
+    val p = Player()
+    println("base  = ${p.baseSpeed()}")
+    println("layer = ${partialSpeed(p) { p.baseSpeed() }}")
+}
+
+main()</textarea>
+      </article>
+
+      <article class="card">
+        <h2>4. Recursive Context State</h2>
+        <p>Model a sticky condition that remains true after first activation.</p>
+        <textarea class="kotlin-playground" data-target-platform="junit" data-version="1.9.20">fun main() {
+    var motion = 0
+    var sticky = false
+
+    fun occupied() = motion > 0
+    fun stickyCondition(): Boolean {
+        sticky = sticky || occupied()
+        return sticky
+    }
+
+    motion = 1
+    println("occupied=${occupied()}, sticky=${stickyCondition()}")
+
+    motion = 0
+    println("occupied=${occupied()}, sticky=${stickyCondition()}")
+}
+
+main()</textarea>
+      </article>
+    </section>
+
+    <footer>
+      Examples correspond to the EMA-Kotlin approach and repository tests. For the full runtime API, use the library source and README.
+    </footer>
+  </main>
+
+  <script src="https://unpkg.com/kotlin-playground@1" data-selector=".kotlin-playground"></script>
+</body>
+</html>
