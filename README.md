@@ -1,8 +1,7 @@
 # EMA-Kotlin
 
-`EMA-Kotlin` is a Kotlin/JVM implementation of the **Expressive and Modular Activation (EMA)** mechanism for Context-Oriented Programming (COP), inspired by EMA-js and the paper:
-
-> Leger, Cardozo, Masuhara. *An expressive and modular layer activation mechanism for Context-Oriented Programming*. Information and Software Technology, 156 (2023) 107132.
+`EMA-Kotlin` is a Kotlin/JVM implementation of the **Expressive and Modular Activation (EMA)** mechanism for Context-Oriented Programming (COP).
+This implementation is inspired by and extends the ideas presented in the EMA paper and EMA-js reference implementation.
 
 ## Status
 
@@ -34,6 +33,10 @@ Current suite:
 
 - Package: [`ema-kotlin`](https://www.npmjs.com/package/ema-kotlin)
 - Repository: <https://github.com/pleger/EMA-Kotlin>
+
+## Citation (APA)
+
+Leger, P., Cardozo, N., & Masuhara, H. (2023). An expressive and modular layer activation mechanism for Context-Oriented Programming. *Information and Software Technology, 156*, 107132. https://doi.org/10.1016/j.infsof.2022.107132
 
 ## Quick Start
 
