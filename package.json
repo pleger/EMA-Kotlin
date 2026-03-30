@@ -1,6 +1,6 @@
 {
   "name": "ema-kotlin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "EMA-Kotlin metadata package linking to the Kotlin implementation of Expressive and Modular Activation (EMA).",
   "license": "MIT",
   "author": "Paul Leger",
@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/pleger/EMA-Kotlin/issues"
   },
-  "homepage": "https://github.com/pleger/EMA-Kotlin#readme",
+  "homepage": "https://github.com/pleger/EMA-Kotlin",
   "publishConfig": {
     "access": "public"
   },
